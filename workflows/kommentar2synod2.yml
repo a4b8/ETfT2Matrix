@@ -2,7 +2,8 @@ on:
   rss:
     url: http://evangelizo.org/rss/v2/evangelizo_rss-de.xml
     config:
-      every: "0 14 * * *" #backup if fails at 10
+      active: false
+      every: "0 14 * * *"
       filter:
         content:
           $regex: ....+
