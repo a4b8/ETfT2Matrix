@@ -1,6 +1,8 @@
 on:
   rss:
-    url: http://evangelizo.org/rss/v2/evangelizo_rss-de.xml
+    url:
+      - http://evangelizo.org/rss/v2/evangelizo_rss-de.xml
+      - http://rss.evangelizo.org/rss/v2/evangelizo_rss-de.xml
     config:
       every: "0 9,13 * * *"
       filter:
