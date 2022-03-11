@@ -4,12 +4,12 @@ on:
       - http://evangelizo.org/rss/v2/evangelizo_rss-de.xml
       - https://rss.evangelizo.org/rss/v2/evangelizo_rss-de.xml
     config:
-      every: "0 8,12 * * *"
+      every: "30 7,11 * * *"
       filter:
         content:
           $regex: ....+
-        title:
-          $regex: Psalm
+        categories:
+          $regex: PSALMUS
 jobs:
   send2matrix:
     runs-on: ubuntu-latest
