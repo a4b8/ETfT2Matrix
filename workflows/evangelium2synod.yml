@@ -8,8 +8,8 @@ on:
       filter:
         content:
           $regex: ....+
-        title:
-          $regex: Evangelium
+        categories:
+          $regex: EVANGELIUM
 jobs:
   send2matrix:
     runs-on: ubuntu-latest
