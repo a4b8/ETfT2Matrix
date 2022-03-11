@@ -8,9 +8,8 @@ on:
       filter:
         content:
           $regex: ....+
-        title:
-          $not:
-            $regex: (Evangelium|Kommentar|Psalm)
+        categories:
+          $regex: LECTIO.1
 jobs:
   send2matrix:
    runs-on: ubuntu-latest
