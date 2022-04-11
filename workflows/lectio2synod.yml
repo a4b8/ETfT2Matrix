@@ -10,6 +10,9 @@ on:
           $regex: ....+
         categories:
           $regex: LECTIO.1
+      format: |
+        item.contentSnippet = 'https://www.startpage.com/do/dsearch?query=' + item.title.substring(item.title.search(' : ') + 3).replace(/ /g, '%20').replace(/,/g, '%2C').replace(/\./g, '%2E').replace(/-/g, '%2D')
+        return item;
 jobs:
   send2matrix:
    runs-on: ubuntu-latest
@@ -20,7 +23,8 @@ jobs:
          room_id: ${{ secrets.MATRIX_ROOM_ID }}
          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
          message: |
-              ${{on.rss.outputs.title}}:
+              ${{on.rss.outputs.title}}
+              ${{on.rss.outputs.contentSnippet}}
               
               ${{on.rss.outputs.content}}
               
