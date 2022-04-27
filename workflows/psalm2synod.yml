@@ -17,17 +17,33 @@ jobs:
   send2matrix:
     runs-on: ubuntu-latest
     steps:
-      - name: send message
+      - name: send titel
         uses: s3krit/matrix-message-action@v0.0.3
         with:
           room_id: ${{ secrets.MATRIX_ROOM_ID }}
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
           message: |
                ${{on.rss.outputs.title}}
-               ${{on.rss.outputs.contentSnippet}}
-               
-               ${{on.rss.outputs.content}}
-               
-               ${{on.rss.outputs.link}}
+               (Quelle: {{on.rss.outputs.link}})
               
           server: "synod.im"
+      - name: send psalm
+        uses: s3krit/matrix-message-action@v0.0.3
+        with:
+          room_id: ${{ secrets.MATRIX_ROOM_ID }}
+          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
+          message: |
+               ${{on.rss.outputs.content}}
+               
+          server: "synod.im"
+      - name: send websuche
+        uses: s3krit/matrix-message-action@v0.0.3
+        with:
+          room_id: ${{ secrets.MATRIX_ROOM_ID }}
+          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
+          message: |
+               Im Web nach ${{on.rss.outputs.title}} suchen:
+               ${{on.rss.outputs.contentSnippet}}
+               
+               ----------
+          server: "synod.im"          
