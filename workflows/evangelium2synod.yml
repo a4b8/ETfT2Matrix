@@ -40,7 +40,7 @@ jobs:
           fi
       - name: Get link
         id: link
-        run: echo "::set-output name=url::https://www.bibleserver.com/EU/${{steps.evangelist.outputs.name}}/${{steps.kapitel.outputs.stelle}}"     
+        run: echo "::set-output name=url::https://www.bibleserver.com/EU/${{steps.evangelist.outputs.name}}${{steps.kapitel.outputs.stelle}}"     
       - name: send titel
         uses: s3krit/matrix-message-action@v0.0.3
         with:
