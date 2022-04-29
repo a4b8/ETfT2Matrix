@@ -23,21 +23,21 @@ jobs:
       - name: Get evangelist
         id: evangelist
         run: |
-          if [ "${{on.rss.outputs.title}}.search('Johannes')" > 1 ]
+          if [[ "${{on.rss.outputs.title}}" == *"Johannes"* ]]
           then
             echo "::set-output name=name::Johannes"
-          elif [ "${{on.rss.outputs.title}}.search('Lukas')" > 1 ]
+          elif [[ "${{on.rss.outputs.title}}" == *"Lukas"* ]]
           then
             echo "::set-output name=name::Lukas"
-          elif [ "${{on.rss.outputs.title}}.search('Matthäus')" > 1 ]
+          elif [[ "${{on.rss.outputs.title}}" == *"Matthäus"* ]]
           then
             echo "::set-output name=name::Matthäus"
-          elif [ "${{on.rss.outputs.title}}.search('Markus')" > 1 ]
+          elif [[ "${{on.rss.outputs.title}}" == *"Markus"* ]]
           then
             echo "::set-output name=name::Markus"
           else
             echo "::set-output name=name::unbekannt"
-          fi 
+          fi
       - name: Get link
         id: link
         run: echo "::set-output name=url::https://www.bibleserver.com/EU/${{steps.evangelist.outputs.name}}/${{steps.kapitel.outputs.stelle}}"     
