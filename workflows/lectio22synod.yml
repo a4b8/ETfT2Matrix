@@ -17,35 +17,135 @@ jobs:
   send2matrix:
    runs-on: ubuntu-latest
    steps:
-     - name: send titel
-       uses: s3krit/matrix-message-action@v0.0.3
-       with:
-         room_id: ${{ secrets.MATRIX_ROOM_ID }}
-         access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
-         message: |
-              ${{on.rss.outputs.title}}
-              (Quelle: ${{on.rss.outputs.link}})
-              
-         server: "synod.im"
-     - name: send lectio2
-       uses: s3krit/matrix-message-action@v0.0.3
-       with:
-         room_id: ${{ secrets.MATRIX_ROOM_ID }}
-         access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
-         message: |
-              ${{on.rss.outputs.content}}
-              
-         server: "synod.im"
-     - name: send websuche
-       uses: s3krit/matrix-message-action@v0.0.3
-       with:
-         room_id: ${{ secrets.MATRIX_ROOM_ID }}
-         access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
-         message: |
-              --
-              
-              Im Web nach ${{on.rss.outputs.title}} suchen:
-              ${{on.rss.outputs.contentSnippet}}
-              
-              ----------
-         server: "synod.im"         
+      - name: Get textstelle
+        id: kapitel
+        run: echo "::set-output name=stelle::"$(echo "${{on.rss.outputs.title}}" | awk -F" " '{print $NF}')
+      - name: Get buch
+        id: buch
+        run: |
+          if [[ "${{on.rss.outputs.title}}" == *"Apostelgeschichte"* ]]
+          then
+            echo "::set-output name=name::Apostelgeschichte"
+          elif [[ "${{on.rss.outputs.title}}" == *"Brief des Apostel Paulus an die Römer"* ]]
+          then
+            echo "::set-output name=name::Römer"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostel Paulus an die Korinther"* ]]
+          then
+            echo "::set-output name=name::1.Korinther"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostel Paulus an die Korinther"* ]]
+          then
+            echo "::set-output name=name::2.Korinther"
+          elif [[ "${{on.rss.outputs.title}}" == *"Galater"* ]]
+          then
+            echo "::set-output name=name::Galater"
+          elif [[ "${{on.rss.outputs.title}}" == *"Galatien"* ]]
+          then
+            echo "::set-output name=name::Galater"
+          elif [[ "${{on.rss.outputs.title}}" == *"Epheser"* ]]
+          then
+            echo "::set-output name=name::Epheser"
+          elif [[ "${{on.rss.outputs.title}}" == *"Philipper"* ]]
+          then
+            echo "::set-output name=name::Philipper"
+          elif [[ "${{on.rss.outputs.title}}" == *"Kolosser"* ]]
+          then
+            echo "::set-output name=name::Kolosser"
+          elif [[ "${{on.rss.outputs.title}}" == *"Der erste Brief an die Thessalonicher"* ]]
+          then
+            echo "::set-output name=name::1.Thessalonicher"
+          elif [[ "${{on.rss.outputs.title}}" == *"Der zweite Brief an die Thessalonicher"* ]]
+          then
+            echo "::set-output name=name::2.Thessalonicher"
+          elif [[ "${{on.rss.outputs.title}}" == *"Der erste Brief an Timotheus"* ]]
+          then
+            echo "::set-output name=name::1.Timotheus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Der zweite Brief an Timotheus"* ]]
+          then
+            echo "::set-output name=name::2.Timotheus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Philemon"* ]]
+          then
+            echo "::set-output name=name::Philemon"
+          elif [[ "${{on.rss.outputs.title}}" == *"Titus"* ]]
+          then
+            echo "::set-output name=name::Titus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Hebräer"* ]]
+          then
+            echo "::set-output name=name::Hebräer"
+          elif [[ "${{on.rss.outputs.title}}" == *"Jakobus"* ]]
+          then
+            echo "::set-output name=name::Jakobus"
+          elif [[ "${{on.rss.outputs.title}}" == *"erste Brief des Petrus"* ]]
+          then
+            echo "::set-output name=name::1.Petrus"
+          elif [[ "${{on.rss.outputs.title}}" == *"erste Brief des Apostels Petrus"* ]]
+          then
+            echo "::set-output name=name::1.Petrus"
+          elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief des Petrus"* ]]
+          then
+            echo "::set-output name=name::2.Petrus"
+          elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief des Apostels Petrus"* ]]
+          then
+            echo "::set-output name=name::2.Petrus"
+          elif [[ "${{on.rss.outputs.title}}" == *"erste Brief des Apostels Johannes"* ]]
+          then
+            echo "::set-output name=name::1.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"erste Brief des Johannes"* ]]
+          then
+            echo "::set-output name=name::1.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief des Apostels Johannes"* ]]
+          then
+            echo "::set-output name=name::2.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief des Johannes"* ]]
+          then
+            echo "::set-output name=name::2.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"dritte Brief des Apostels Johannes"* ]]
+          then
+            echo "::set-output name=name::3.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"dritte Brief des Johannes"* ]]
+          then
+            echo "::set-output name=name::3.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"Judas"* ]]
+          then
+            echo "::set-output name=name::Judas"
+          elif [[ "${{on.rss.outputs.title}}" == *"Offenbarung"* ]]
+          then
+            echo "::set-output name=name::Offenbarung"
+          else
+            echo "::set-output name=name::unbekannt"
+          fi
+      - name: Get link
+        id: link
+        run: echo "::set-output name=url::https://www.bibleserver.com/EU/${{steps.buch.outputs.name}}${{steps.kapitel.outputs.stelle}}"
+      - name: send titel
+        uses: s3krit/matrix-message-action@v0.0.3
+        with:
+          room_id: ${{ secrets.MATRIX_ROOM_ID }}
+          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
+          message: |
+               ${{on.rss.outputs.title}}
+               (${{steps.link.outputs.url}})
+               
+          server: "synod.im"
+      - name: send lectio2
+        uses: s3krit/matrix-message-action@v0.0.3
+        with:
+          room_id: ${{ secrets.MATRIX_ROOM_ID }}
+          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
+          message: |
+               ${{on.rss.outputs.content}}
+               
+          server: "synod.im"
+      - name: send fuss
+        uses: s3krit/matrix-message-action@v0.0.3
+        with:
+          room_id: ${{ secrets.MATRIX_ROOM_ID }}
+          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
+          message: |
+               --
+               (Quelle: ${{on.rss.outputs.link}})
+               
+               Im Web nach ${{on.rss.outputs.title}} suchen:
+               ${{on.rss.outputs.contentSnippet}}
+               
+               ----------
+          server: "synod.im"         
