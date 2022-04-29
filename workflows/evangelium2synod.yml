@@ -17,6 +17,30 @@ jobs:
   send2matrix:
     runs-on: ubuntu-latest
     steps:
+      - name: Get textstelle
+        id: kapitel
+        run: echo "::set-output name=stelle::"$(echo "${{on.rss.outputs.title}}" | awk -F" " '{print $NF}')
+      - name: Get evangelist
+        id: evangelist
+        run: |
+          if [ "${{on.rss.outputs.title}}.search('Johannes')" > 1 ]
+          then
+            echo "::set-output name=name::Johannes"
+          elif [ "${{on.rss.outputs.title}}.search('Lukas')" > 1 ]
+          then
+            echo "::set-output name=name::Lukas"
+          elif [ "${{on.rss.outputs.title}}.search('Matthäus')" > 1 ]
+          then
+            echo "::set-output name=name::Matthäus"
+          elif [ "${{on.rss.outputs.title}}.search('Markus')" > 1 ]
+          then
+            echo "::set-output name=name::Markus"
+          else
+            echo "::set-output name=name::unbekannt"
+          fi 
+      - name: Get link
+        id: link
+        run: echo "::set-output name=url::https://www.bibleserver.com/EU/${{steps.evangelist.outputs.name}}/${{steps.kapitel.outputs.stelle}}"     
       - name: send titel
         uses: s3krit/matrix-message-action@v0.0.3
         with:
@@ -24,7 +48,7 @@ jobs:
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
           message: |
                ${{on.rss.outputs.title}}
-               (Quelle: ${{on.rss.outputs.link}})
+               (${{steps.link.outputs.url}})
               
           server: "synod.im"
       - name: send evangelium
@@ -36,14 +60,12 @@ jobs:
                ${{on.rss.outputs.content}}
                
           server: "synod.im"
-      - name: send websuche
+      - name: send fuss
         uses: s3krit/matrix-message-action@v0.0.3
         with:
           room_id: ${{ secrets.MATRIX_ROOM_ID }}
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
           message: |
-               Im Web nach der Schriftstelle suchen:
-               ${{on.rss.outputs.contentSnippet}}
-               
                ----------
+               ${{on.rss.outputs.link}}
           server: "synod.im"          
