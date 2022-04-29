@@ -42,6 +42,8 @@ jobs:
          room_id: ${{ secrets.MATRIX_ROOM_ID }}
          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
          message: |
+              --
+              
               Im Web nach der Schriftstelle suchen:
               ${{on.rss.outputs.contentSnippet}}
               
