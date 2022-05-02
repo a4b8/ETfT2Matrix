@@ -144,8 +144,6 @@ jobs:
                --
                (Quelle: ${{on.rss.outputs.link}})
                
-               Im Web nach ${{on.rss.outputs.title}} suchen:
-               ${{on.rss.outputs.contentSnippet}}
                
                ----------
           server: "synod.im"         
