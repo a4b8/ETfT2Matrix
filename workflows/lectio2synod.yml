@@ -29,10 +29,13 @@ jobs:
           elif [[ "${{on.rss.outputs.title}}" == *"Brief des Apostel Paulus an die Römer"* ]]
           then
             echo "::set-output name=name::Römer"
-          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostel Paulus an die Korinther"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"an die Römer"* ]]
+          then
+            echo "::set-output name=name::Römer"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostels Paulus an die Korinther"* ]]
           then
             echo "::set-output name=name::1.Korinther"
-          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostel Paulus an die Korinther"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostels Paulus an die Korinther"* ]]
           then
             echo "::set-output name=name::2.Korinther"
           elif [[ "${{on.rss.outputs.title}}" == *"Galater"* ]]
