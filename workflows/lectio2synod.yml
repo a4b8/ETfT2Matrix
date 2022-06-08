@@ -113,6 +113,168 @@ jobs:
           elif [[ "${{on.rss.outputs.title}}" == *"Offenbarung"* ]]
           then
             echo "::set-output name=name::Offenbarung"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erstes Buch der Könige"* ]]
+          then
+            echo "::set-output name=name::1.Könige"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweites Buch der Könige"* ]]
+          then
+            echo "::set-output name=name::2.Könige"
+          elif [[ "${{on.rss.outputs.title}}" == *"Genesis"* ]]
+          then
+            echo "::set-output name=name::1.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Exodus"* ]]
+          then
+            echo "::set-output name=name::2.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Levitikus"* ]]
+          then
+            echo "::set-output name=name::3.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Numeri"* ]]
+          then
+            echo "::set-output name=name::4.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Deuteronomium"* ]]
+          then
+            echo "::set-output name=name::5.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erstes Buch Mose"* ]]
+          then
+            echo "::set-output name=name::1.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweites Buch Mose"* ]]
+          then
+            echo "::set-output name=name::2.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Drittes Buch Mose"* ]]
+          then
+            echo "::set-output name=name::3.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Viertes Buch Mose"* ]]
+          then
+            echo "::set-output name=name::4.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Fünftes Buch Mose"* ]]
+          then
+            echo "::set-output name=name::5.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Josua"* ]]
+          then
+            echo "::set-output name=name::Josua"
+          elif [[ "${{on.rss.outputs.title}}" == *"Buch Richter"* ]]
+          then
+            echo "::set-output name=name::Richter"
+          elif [[ "${{on.rss.outputs.title}}" == *"Buch der Richter"* ]]
+          then
+            echo "::set-output name=name::Richter"
+          elif [[ "${{on.rss.outputs.title}}" == *"Buch Rut"* ]]
+          then
+            echo "::set-output name=name::Rut"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erstes Buch Samuel"* ]]
+          then
+            echo "::set-output name=name::1.Samuel"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweites Buch Samuel"* ]]
+          then
+            echo "::set-output name=name::2.Samuel"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erstes Buch der Chronik"* ]]
+          then
+            echo "::set-output name=name::1.Chronik"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweites Buch der Chronik"* ]]
+          then
+            echo "::set-output name=name::2.Chronik"
+          elif [[ "${{on.rss.outputs.title}}" == *"Esra"* ]]
+          then
+            echo "::set-output name=name::Esra"
+          elif [[ "${{on.rss.outputs.title}}" == *"Nehemia"* ]]
+          then
+            echo "::set-output name=name::Nehemia"
+          elif [[ "${{on.rss.outputs.title}}" == *"Tobit"* ]]
+          then
+            echo "::set-output name=name::Tobit"
+          elif [[ "${{on.rss.outputs.title}}" == *"Judit"* ]]
+          then
+            echo "::set-output name=name::Judit"
+          elif [[ "${{on.rss.outputs.title}}" == *"Ester"* ]]
+          then
+            echo "::set-output name=name::Ester"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erstes Buch der Makkabäer"* ]]
+          then
+            echo "::set-output name=name::1.Makkabäer"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweites Buch der Makkabäer"* ]]
+          then
+            echo "::set-output name=name::2.Makkabäer"
+          elif [[ "${{on.rss.outputs.title}}" == *"Ijob"* ]]
+          then
+            echo "::set-output name=name::Ijob"
+          elif [[ "${{on.rss.outputs.title}}" == *"Hiob"* ]]
+          then
+            echo "::set-output name=name::Ijob"
+          elif [[ "${{on.rss.outputs.title}}" == *"Sprichwörter"* ]]
+          then
+            echo "::set-output name=name::Sprüche"
+          elif [[ "${{on.rss.outputs.title}}" == *"Sprüche"* ]]
+          then
+            echo "::set-output name=name::Sprüche"
+          elif [[ "${{on.rss.outputs.title}}" == *"Kohelet"* ]]
+          then
+            echo "::set-output name=name::Kohelet"
+          elif [[ "${{on.rss.outputs.title}}" == *"Hoheslied"* ]]
+          then
+            echo "::set-output name=name::Hoheslied"
+          elif [[ "${{on.rss.outputs.title}}" == *"Hohelied"* ]]
+          then
+            echo "::set-output name=name::Hoheslied"
+          elif [[ "${{on.rss.outputs.title}}" == *"Weisheit"* ]]
+          then
+            echo "::set-output name=name::Weisheit"
+          elif [[ "${{on.rss.outputs.title}}" == *"Jesus Sirach"* ]]
+          then
+            echo "::set-output name=name::Sirach"
+          elif [[ "${{on.rss.outputs.title}}" == *"Jesaja"* ]]
+          then
+            echo "::set-output name=name::Jesaja"
+          elif [[ "${{on.rss.outputs.title}}" == *"Jeremia"* ]]
+          then
+            echo "::set-output name=name::Jeremia"
+          elif [[ "${{on.rss.outputs.title}}" == *"Klagelieder"* ]]
+          then
+            echo "::set-output name=name::Klagelieder"
+          elif [[ "${{on.rss.outputs.title}}" == *"Baruch"* ]]
+          then
+            echo "::set-output name=name::Baruch"
+          elif [[ "${{on.rss.outputs.title}}" == *"Ezechiel"* ]]
+          then
+            echo "::set-output name=name::Ezechiel"
+          elif [[ "${{on.rss.outputs.title}}" == *"Daniel"* ]]
+          then
+            echo "::set-output name=name::Daniel"
+          elif [[ "${{on.rss.outputs.title}}" == *"Hosea"* ]]
+          then
+            echo "::set-output name=name::Hosea"
+          elif [[ "${{on.rss.outputs.title}}" == *"Joel"* ]]
+          then
+            echo "::set-output name=name::Joel"
+          elif [[ "${{on.rss.outputs.title}}" == *"Amos"* ]]
+          then
+            echo "::set-output name=name::Amos"
+          elif [[ "${{on.rss.outputs.title}}" == *"Obadja"* ]]
+          then
+            echo "::set-output name=name::Obadja"
+          elif [[ "${{on.rss.outputs.title}}" == *"Jona"* ]]
+          then
+            echo "::set-output name=name::Jona"
+          elif [[ "${{on.rss.outputs.title}}" == *"Micha"* ]]
+          then
+            echo "::set-output name=name::Micha"
+          elif [[ "${{on.rss.outputs.title}}" == *"Nahum"* ]]
+          then
+            echo "::set-output name=name::Nahum"
+          elif [[ "${{on.rss.outputs.title}}" == *"Habakuk"* ]]
+          then
+            echo "::set-output name=name::Habakuk"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zefanja"* ]]
+          then
+            echo "::set-output name=name::Zefanja"
+          elif [[ "${{on.rss.outputs.title}}" == *"Haggai"* ]]
+          then
+            echo "::set-output name=name::Haggai"
+          elif [[ "${{on.rss.outputs.title}}" == *"Sacharja"* ]]
+          then
+            echo "::set-output name=name::Sacharja"
+          elif [[ "${{on.rss.outputs.title}}" == *"Maleachi"* ]]
+          then
+            echo "::set-output name=name::Maleachi"
           else
             echo "::set-output name=name::unbekannt"
           fi
