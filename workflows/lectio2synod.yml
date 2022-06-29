@@ -65,6 +65,12 @@ jobs:
           elif [[ "${{on.rss.outputs.title}}" == *"Der zweite Brief an Timotheus"* ]]
           then
             echo "::set-output name=name::2.Timotheus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostels Paulus an Timotheus"* ]]
+          then
+            echo "::set-output name=name::1.Timotheus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostels Paulus an Timotheus"* ]]
+          then
+            echo "::set-output name=name::2.Timotheus"            
           elif [[ "${{on.rss.outputs.title}}" == *"Philemon"* ]]
           then
             echo "::set-output name=name::Philemon"
