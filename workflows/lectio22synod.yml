@@ -98,16 +98,25 @@ jobs:
           elif [[ "${{on.rss.outputs.title}}" == *"erste Brief des Apostels Johannes"* ]]
           then
             echo "::set-output name=name::1.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erster Johannesbrief"* ]]
+          then
+            echo "::set-output name=name::1.Johannes"
           elif [[ "${{on.rss.outputs.title}}" == *"erste Brief des Johannes"* ]]
           then
             echo "::set-output name=name::1.Johannes"
           elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief des Apostels Johannes"* ]]
           then
             echo "::set-output name=name::2.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Johannesbrief"* ]]
+          then
+            echo "::set-output name=name::2.Johannes"
           elif [[ "${{on.rss.outputs.title}}" == *"zweite Brief des Johannes"* ]]
           then
             echo "::set-output name=name::2.Johannes"
           elif [[ "${{on.rss.outputs.title}}" == *"dritte Brief des Apostels Johannes"* ]]
+          then
+            echo "::set-output name=name::3.Johannes"
+          elif [[ "${{on.rss.outputs.title}}" == *"Dritter Johannesbrief"* ]]
           then
             echo "::set-output name=name::3.Johannes"
           elif [[ "${{on.rss.outputs.title}}" == *"dritte Brief des Johannes"* ]]
