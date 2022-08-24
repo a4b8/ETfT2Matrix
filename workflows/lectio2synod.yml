@@ -290,6 +290,33 @@ jobs:
           elif [[ "${{on.rss.outputs.title}}" == *"Maleachi"* ]]
           then
             echo "::set-output name=name::Maleachi"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostels Paulus an die Thessalonicher"* ]]
+          then
+            echo "::set-output name=name::2.Thessalonicher"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostels Paulus an die Thessalonicher"* ]]
+          then
+            echo "::set-output name=name::1.Thessalonicher"
+          elif [[ "${{on.rss.outputs.title}}" == *"Zweiter Brief des Apostels Petrus"* ]]
+          then
+            echo "::set-output name=name::2.Petrus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Erster Brief des Apostels Petrus"* ]]
+          then
+            echo "::set-output name=name::1.Petrus"
+          elif [[ "${{on.rss.outputs.title}}" == *"Genesis"* ]]
+          then
+            echo "::set-output name=name::1.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Exodus"* ]]
+          then
+            echo "::set-output name=name::2.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Leviticus"* ]]
+          then
+            echo "::set-output name=name::3.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Numeri"* ]]
+          then
+            echo "::set-output name=name::4.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Deuteronomium"* ]]
+          then
+            echo "::set-output name=name::5.Mose"
           else
             echo "::set-output name=name::unbekannt"
           fi
