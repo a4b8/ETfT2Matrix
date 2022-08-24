@@ -26,15 +26,21 @@ jobs:
           if [[ "${{on.rss.outputs.title}}" == *"ps"* ]]
           then
             echo "::set-output name=name::ps"
-          elif [[ "${{on.rss.outputs.title}}" == *"Lukas"* ]]
+          elif [[ "${{on.rss.outputs.title}}" == *"Genesis"* ]]
           then
-            echo "::set-output name=name::Lukas"
-          elif [[ "${{on.rss.outputs.title}}" == *"Matthäus"* ]]
+            echo "::set-output name=name::1.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Exodus"* ]]
           then
-            echo "::set-output name=name::Matthäus"
-          elif [[ "${{on.rss.outputs.title}}" == *"Markus"* ]]
+            echo "::set-output name=name::2.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Leviticus"* ]]
           then
-            echo "::set-output name=name::Markus"
+            echo "::set-output name=name::3.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Numeri"* ]]
+          then
+            echo "::set-output name=name::4.Mose"
+          elif [[ "${{on.rss.outputs.title}}" == *"Deuteronomium"* ]]
+          then
+            echo "::set-output name=name::5.Mose"
           else
             echo "::set-output name=name::#Fehler"
           fi 
