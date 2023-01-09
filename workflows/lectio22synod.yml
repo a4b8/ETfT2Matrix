@@ -1,10 +1,9 @@
 on:
   rss:
     url:
-      - http://evangelizo.org/rss/v2/evangelizo_rss-de.xml
       - https://rss.evangelizo.org/rss/v2/evangelizo_rss-de.xml
     config:
-      every: "0 8,12 * * *"
+      every: "0 8,12,14 * * *"
       filter:
         content:
           $regex: ....+
